@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Engineer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" onclick="closeSidebar(event)">
+        <header>
+            <div class="hamburger" onclick="toggleSidebar(event)">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </header>
+        <div class="intro">
+            <p>👋 Hi There! I'm <strong>Yash</strong></p>
+            <h1>A Frontend Developer. I Help Startups <span>Launch</span> And <span>Grow</span> Their Products</h1>
+            <p class="description">With a strong background in front-end development, I specialize in crafting interactive and user-friendly websites. Based in Pune, India, I have collaborated on various real-world projects, delivering high-quality web solutions that drive business growth and enhance user engagement.</p>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <a href="about.html">About</a>
+            <a href="skills.html">My Skills</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+            <a href="blog.html">Blog</a>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar(event) {
+    event.stopPropagation(); // Prevent the click from propagating to the container
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('sidebar-open');
+}
+
+function closeSidebar(event) {
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar.contains(event.target)) {
+        sidebar.classList.remove('sidebar-open');
+    }
+}
+
+    </script>
+</body>
+</html>

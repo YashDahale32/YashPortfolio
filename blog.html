@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Frontend Engineer Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f4f4f4;
+            overflow-x: hidden;
+            height: 100vh;
+            background-color: black;
+            background-image: url('background.jpg'); /* Replace with your image path if you have a background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            backdrop-filter: blur(5px); /* Optional: Adds a blur effect to the background */
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 2; /* Ensure the hamburger menu is clickable */
+        }
+
+        .hamburger .line {
+            width: 30px;
+            height: 3px;
+            background-color: #00d1b2;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .content {
+            max-width: 800px;
+            z-index: 1; /* Ensure the content is clickable */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+            margin-top: 80px;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+            color: #00d1b2;
+        }
+
+        .blog-post {
+            margin-bottom: 30px;
+        }
+
+        .blog-post h2 {
+            color: #00d1b2;
+        }
+
+        .blog-post p {
+            color: #f4f4f4;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: black;
+            padding-top: 60px;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 3; /* Ensure the sidebar is clickable */
+        }
+
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #00d1b2;
+            display: block;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        .sidebar-open {
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="hamburger" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </header>
+        <div class="content">
+            <h1>Blog</h1>
+            <div class="blog-post">
+                <h2>Understanding the Basics of Frontend Development</h2>
+                <p>Frontend development involves creating the user interface and experience for websites and applications. It includes working with technologies like HTML, CSS, and JavaScript to build interactive and visually appealing interfaces.</p>
+            </div>
+            <div class="blog-post">
+                <h2>10 Tips for Writing Clean and Efficient Code</h2>
+                <p>Writing clean and efficient code is essential for maintainability and performance. Here are 10 tips to help you write better code: use meaningful variable names, keep functions small, comment your code, and more.</p>
+            </div>
+            <div class="blog-post">
+                <h2>The Importance of Responsive Design</h2>
+                <p>Responsive design ensures that websites look and function well on all devices, from desktops to smartphones. By using techniques like media queries and flexible layouts, you can create websites that provide a great user experience on any screen size.</p>
+            </div>
+            <div class="blog-post">
+                <h2>Getting Started with Web3 Development</h2>
+                <p>Web3 development focuses on building decentralized applications (dApps) on blockchain technology. Learn about the basics of Web3, including smart contracts, Ethereum, and how to start developing your own dApps.</p>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">My Skills</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('sidebar-open');
+        }
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.querySelector('.hamburger');
+
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+                sidebar.classList.remove('sidebar-open');
+            }
+        });
+    </script>
+</body>
+</html>

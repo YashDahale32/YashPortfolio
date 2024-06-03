@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills - Frontend Engineer Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f4f4f4;
+            overflow-x: hidden;
+            height: 100vh;
+            background-color: black;
+            background-image: url('background.jpg'); /* Replace with your image path if you have a background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            justify-content: center;
+            padding: 0 20px;
+            backdrop-filter: blur(5px); /* Optional: Adds a blur effect to the background */
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+        }
+
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 2; /* Ensure the hamburger menu is clickable */
+        }
+
+        .hamburger .line {
+            width: 30px;
+            height: 3px;
+            background-color: #00d1b2;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .content {
+            max-width: 800px;
+            z-index: 1; /* Ensure the content is clickable */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+            color: #00d1b2;
+        }
+
+        .skills h2 {
+            font-size: 2em;
+            margin: 20px 0 10px;
+            color: #00d1b2;
+        }
+
+        .skills p {
+            font-size: 1.0em;
+            margin: 10px 0 20px;
+            color: #f4f4f4;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: black;
+            padding-top: 60px;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 3; /* Ensure the sidebar is clickable */
+        }
+
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #00d1b2;
+            display: block;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        .sidebar-open {
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2em;
+            }
+
+            .skills h2 {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="hamburger" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </header>
+        <div class="content">
+            <h1>My Skills</h1>
+            <div class="skills">
+                <h2>HTML</h2>
+                <p>I have a strong foundation in HTML, which allows me to structure web content effectively and ensure that it is semantic and accessible.</p>
+                
+                <h2>CSS</h2>
+                <p>With CSS, I can style websites to look visually appealing and responsive across different devices and screen sizes. I have experience with modern CSS techniques, including Flexbox and Grid.</p>
+                
+                <h2>JavaScript</h2>
+                <p>I have built various interactive web components and applications using JavaScript, including login pages and other dynamic features. My JavaScript skills enable me to enhance user experiences with seamless interactivity.</p>
+                
+                <h2>Python</h2>
+                <p>I am proficient in Python and have used it for a variety of projects, ranging from web scraping to data analysis. My understanding of Python extends to writing efficient and clean code.</p>
+                
+                <h2>C</h2>
+                <p>I have a solid grasp of the C programming language, which I have used for system-level programming and developing performance-critical applications.</p>
+                
+                <h2>Frontend Web Development</h2>
+                <p>My primary interest lies in frontend web development. I enjoy creating user-friendly and visually appealing websites, and I am continuously learning and experimenting with new technologies to enhance my skill set.</p>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+            <a href="blog.html">Blog</a>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('sidebar-open');
+        }
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.querySelector('.hamburger');
+
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+                sidebar.classList.remove('sidebar-open');
+            }
+        });
+    </script>
+</body>
+</html>

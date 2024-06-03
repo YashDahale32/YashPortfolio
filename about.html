@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Frontend Engineer Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f4f4f4;
+            overflow-x: hidden;
+            height: 100vh;
+            background-image: url('background.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            justify-content: center;
+            padding: 0 20px;
+            backdrop-filter: blur(5px); /* Optional: Adds a blur effect to the background */
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent background */
+        }
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 2; /* Ensure the hamburger menu is clickable */
+        }
+
+        .hamburger .line {
+            width: 30px;
+            height: 3px;
+            background-color: #00d1b2;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .content {
+            max-width: 800px;
+            z-index: 1; /* Ensure the content is clickable */
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+        }
+
+        .content p {
+            font-size: 1.2em;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #1a1a1a;
+            padding-top: 60px;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 3; /* Ensure the sidebar is clickable */
+        }
+
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #00d1b2;
+            display: block;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        .sidebar-open {
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2em;
+            }
+        }
+
+        h1 {
+            color: #00d1b2;
+        }
+        .intro p span {
+    color: #00d1b2;
+    text-decoration:double;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="hamburger" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </header>
+        <div class="content">
+            <h1>About Me</h1>
+            <div class="intro">
+                <img src="https://via.placeholder.com/150" alt="My Photo" class="profile-photo">
+                <p>Hi, I'm ,<strong><span>Yash Dahale</span></strong>, Studying at <span><Strong>Vishwakarma University</Strong></span>, Currently at 5th sem i.e. 3rd Year in BSc Computer Science. A passionate Frontend Web Developer based in <span><Strong>Pune, India.</span></Strong> I specialize in crafting interactive and user-friendly websites that provide exceptional user experiences.</p>
+                <p>I have collaborated on various real-world projects, delivering high-quality web solutions that drive business growth and enhance user engagement. My skill set includes<span><Strong> HTML, CSS, JavaScript.</span></Strong></p>
+                <p>I am committed to staying updated with the latest industry trends and continuously improving my skills. In my spare time, I enjoy contributing to open-source projects, blogging about web development, and exploring new technologies.</p>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <a href="index.html">Home</a>
+            <a href="skills.html">My Skills</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+            <a href="blog.html">Blog</a>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('sidebar-open');
+        }
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.querySelector('.hamburger');
+
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+                sidebar.classList.remove('sidebar-open');
+            }
+        });
+    </script>
+</body>
+</html>
